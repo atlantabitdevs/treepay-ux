@@ -68,37 +68,13 @@ export default function Exchange() {
         color="default"
         elevation={0}
         sx={{
-<<<<<<< HEAD
-          position: "relative",
-=======
           position: 'relative',
           mx: 'auto',
           bgcolor: theme.palette.primary,
->>>>>>> origin/styling
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
         <Toolbar>
-<<<<<<< HEAD
-          <Typography variant="h6" color="inherit" textShadow="1px 1px" noWrap>
-            Real
-          </Typography>
-          <img
-            src="/coinbase.webp"
-            style={{ marginLeft: "5px", alignItems: "center", width: "100px" }}
-          />
-
-          <Typography variant="h6" color="inherit" textShadow="1px 1px" noWrap>
-            .com
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
-        <Paper
-          variant="outlined"
-          sx={{ my: { xs: 2, md: 4 }, p: { xs: 2, md: 4 } }}
-        >
-=======
           <Typography variant="h6" color="inherit" noWrap sx={{mx: 'auto', bgcolor: '#F3EDF7'}}>
             <svg width="193" height="40" viewBox="0 0 193 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_16_1730)">
@@ -125,7 +101,6 @@ export default function Exchange() {
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4, bgcolor: theme.palette.primary }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
->>>>>>> origin/styling
           <Typography component="h1" variant="h4" align="center">
             Withdraw BTC
           </Typography>
