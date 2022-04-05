@@ -6,13 +6,10 @@ import { Home, Exchange } from "./components/index"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Treepay UX</h1>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/exchange' element={<Exchange />} />
         </Routes>
-      </header>
     </div>
   );
 }
