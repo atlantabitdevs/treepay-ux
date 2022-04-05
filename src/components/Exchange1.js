@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Switch from "@material-ui/core/Switch";
 
-export default function Exchange1() {
+export default function Exchange1(props) {
   const [checked, setChecked] = useState(false)
   const handleChange = () => {
     setChecked(!checked)
@@ -15,9 +15,6 @@ export default function Exchange1() {
 
   return (
     <React.Fragment>
-      {/* <Typography variant="h6" gutterBottom>
-        Payment method
-      </Typography> */}
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <TextField

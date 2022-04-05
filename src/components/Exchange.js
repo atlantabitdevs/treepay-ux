@@ -1,35 +1,35 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
-import Paper from '@mui/material/Paper';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Exchange1 from './Exchange1';
-import Exchange2 from './Exchange2';
-import Exchange3 from './Exchange3';
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Toolbar from "@mui/material/Toolbar";
+import Paper from "@mui/material/Paper";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Exchange1 from "./Exchange1";
+import Exchange2 from "./Exchange2";
+import Exchange3 from "./Exchange3";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://atlantabitdevs.org">
         Atlanta BitDevs
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
-const steps = ['Receive Address', 'Save Txn Info'];
+const steps = ["Receive Address", "Save Txn Info"];
 
 function getStepContent(step) {
   switch (step) {
@@ -38,7 +38,7 @@ function getStepContent(step) {
     case 1:
       return <Exchange2 />;
     default:
-      throw new Error('Unknown step');
+      throw new Error("Unknown step");
   }
 }
 
@@ -69,19 +69,27 @@ export default function Exchange() {
       >
         <Toolbar>
           <Typography variant="h6" color="inherit" textShadow="1px 1px" noWrap>
-            Real Coinbase.com
+            Real
+          </Typography>
+          <img
+            src="/coinbase.webp"
+            style={{ marginLeft: "5px", alignItems: "center", width: "100px" }}
+          />
+
+          <Typography variant="h6" color="inherit" textShadow="1px 1px" noWrap>
+            .com
           </Typography>
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
-          sx={{ my: { xs: 3, md: 4 }, p: { xs: 2, md: 8 } }}
+          sx={{ my: { xs: 2, md: 4 }, p: { xs: 2, md: 4 } }}
         >
           <Typography component="h1" variant="h4" align="center">
             Withdraw BTC
           </Typography>
-          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+          <Stepper activeStep={activeStep} sx={{ pt: 5, pb: 5 }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -89,40 +97,25 @@ export default function Exchange() {
             ))}
           </Stepper>
           <React.Fragment>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Fix this text later. We've sent this to you in a congestion
-                  controlled transaction. Import this data into your wallet by
-                  scanning the below QR code. We have also sent this data to
-                  your email on file.
-                </Typography>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                      Back
-                    </Button>
-                  )}
-                  {activeStep < steps.length - 1 && (
-                    <Button
-
-                      variant="contained"
-                      onClick={handleNext}
-                      sx={{ mt: 3, mv: 1 }}
-                    >
-                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                    </Button>
-                  )}
-                </Box>
-              </React.Fragment>
-            )}
+            <React.Fragment>
+              {getStepContent(activeStep)}
+              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                {activeStep !== 0 && (
+                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                    Back
+                  </Button>
+                )}
+                {activeStep < steps.length - 1 && (
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{ mt: 3, mv: 1 }}
+                  >
+                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                  </Button>
+                )}
+              </Box>
+            </React.Fragment>
           </React.Fragment>
         </Paper>
         <Copyright />

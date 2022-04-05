@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { useState, useEffect } from 'react';
 import {QRCodeSVG} from 'qrcode.react';
 
-export default function Exchange2() {
+export default function Exchange2(props) {
   const [template, setTemplate] = useState('')
   useEffect(() => {
     setTemplate('thisisatest')
@@ -21,21 +21,21 @@ export default function Exchange2() {
       </Typography>
       <Grid container center spacing={3} align="center" direction="column">
 
-        <Grid item sx={{py: 3, px: 1}} ms={5} xs={1} >
+        <Grid item sx={{py: 1, px: 1}} xs={10}>
+          <Box component="div" sx={{ width: '50%', p: 2, boxShadow: '5' }}>
+            { template ?  <QRCodeSVG size={200} value="template" /> : 'loading' }
+
+          <div style={{height: '15px'}} />
+          <Typography  variant="p">PBST: {template ? template: "..."}</Typography>
+          </Box>
+        </Grid>
+        <Grid item sx={{py: 1, px: 1, width: '65%', margin:'auto'}} ms={5} xs={1} >
           <Typography variant="p">
             We've sent this to you in a congestion
             controlled transaction. Import this data into your wallet by
             scanning the below QR code. We have also sent this data to
             your email on file.
           </Typography>
-        </Grid>
-        <Grid item sx={{py: 2, px: 1}} xs={10}>
-          <Box component="div" sx={{ width: '50%', p: 2, boxShadow: '5' }}>
-            { template ?  <QRCodeSVG size={300} value="template" /> : 'loading' }
-
-          <div style={{height: '15px'}} />
-          <Typography  variant="p">{template ? template: "..."}</Typography>
-          </Box>
         </Grid>
 
       </Grid>
