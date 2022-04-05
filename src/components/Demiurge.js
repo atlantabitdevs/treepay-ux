@@ -16,7 +16,7 @@ export default function Demiurge(){
   const [page, setPage] = useState('home')
 
   function changePage(newPage){
-    alert(newPage)
+    // alert(newPage)
     setPage(newPage)
   }
 

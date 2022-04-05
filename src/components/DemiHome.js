@@ -1,8 +1,10 @@
 import Button from './Button';
 import {ReceiveIcon, ScanIcon, SendIcon} from '@bitcoin-design/bitcoin-icons-react/filled';
-import React from 'react';
+import React, {useState} from 'react';
 
 export default function DemiHome({parentCallback}){
+  
+  
   return(
     <div className="flex flex-col justify-between items-center h-full">
       <img src="WalletArt.png" alt="" className="w-64 mt-32" />
