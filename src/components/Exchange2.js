@@ -32,6 +32,9 @@ export default function Exchange2() {
         <Grid item sx={{py: 2, px: 1}} xs={10}>
           <Box component="div" sx={{ width: '50%', p: 2, boxShadow: '5' }}>
             { template ?  <QRCodeSVG size={300} value="template" /> : 'loading' }
+
+          <div style={{height: '15px'}} />
+          <Typography  variant="p">{template ? template: "..."}</Typography>
           </Box>
         </Grid>
 
