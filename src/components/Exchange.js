@@ -29,18 +29,14 @@ function Copyright() {
   );
 }
 
-const steps = ['Receive Address', 'Scan QR', 'Review'];
+const steps = ['Receive Address', 'Save Txn Info'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <Exchange1 />;
-      // return <div />
     case 1:
       return <Exchange2 />;
-      // return <div />
-    case 2:
-      return <Exchange3 />;
     default:
       throw new Error('Unknown step');
   }
@@ -67,18 +63,21 @@ export default function Exchange() {
         color="default"
         elevation={0}
         sx={{
-          position: 'relative',
+          position: "relative",
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" textShadow="1px 1px" noWrap>
             Real Coinbase.com
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+      <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
+        <Paper
+          variant="outlined"
+          sx={{ my: { xs: 3, md: 4 }, p: { xs: 2, md: 8 } }}
+        >
           <Typography component="h1" variant="h4" align="center">
             Withdraw BTC
           </Typography>
@@ -96,28 +95,31 @@ export default function Exchange() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
+                  Fix this text later. We've sent this to you in a congestion
+                  controlled transaction. Import this data into your wallet by
+                  scanning the below QR code. We have also sent this data to
+                  your email on file.
                 </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
                       Back
                     </Button>
                   )}
+                  {activeStep < steps.length - 1 && (
+                    <Button
 
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 3, ml: 1 }}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
+                      variant="contained"
+                      onClick={handleNext}
+                      sx={{ mt: 3, mv: 1 }}
+                    >
+                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                  )}
                 </Box>
               </React.Fragment>
             )}

@@ -37,12 +37,6 @@ export default function Exchange1() {
             variant="standard"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="p" gutterBottom>
-            Toggle CTV Congestion Control
-          </Typography>
-          <Switch checked={checked} onChange={handleChange} name="checked" />
-        </Grid>
       </Grid>
     </React.Fragment>
   );
